@@ -1,0 +1,30 @@
+TASK=EXECUTIVE_INSIGHTS
+
+Inputs:
+- today_ist: {{today_ist}}
+- product_focus: {{product_focus}}
+- topics: {{topics_csv}}
+- recency_days: {{recency_days_exec}}
+- denylist_domains: {{denylist_domains_csv}}
+
+Data:
+{{items_json_compact}}
+
+Instructions:
+Produce 1–2 short sections for senior executives.
+
+For each section:
+- Start with a concise **business impact headline** (no jargon).
+- Include at least one **KPI or data-backed fact** (e.g., CVR, zero-result %, findability, AOV, revenue lift).
+- Add one **competitor or peer signal** (e.g., “Amazon is testing…”, “Instacart adopted…”).
+- Add one **risk or opportunity** for our company.
+- End with **Leadership takeaway:** (one sentence, strategic, non-technical).
+
+Rules:
+- 3–5 bullets max per section.
+- No algorithm terms (no BM25, no embeddings).
+- No raw URLs in the body (links are handled separately).
+- Prefer **recent** credible sources (Gartner/blogs/cloud vendors/retail press).
+- Avoid competitor links in text (mention names only if needed).
+
+Return only the content—no preamble, no metadata.

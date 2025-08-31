@@ -1,0 +1,36 @@
+TASK=CONSULTING_NEWS
+
+Inputs:
+- today_ist: {{today_ist}}
+- product_focus: {{product_focus}}
+- topics: {{topics_csv}}
+- recency_days: {{recency_days_cons}}
+- denylist_domains: {{denylist_domains_csv}}
+
+Data:
+{{items_json_compact}}
+
+Instructions:
+Produce **3 clear blocks** for consulting teams:
+
+Block A: Market Radar (last 2–4 weeks)
+- 3–5 bullets max.
+- Cover: recent OSS & SaaS releases, evolving features, emerging trends.
+- Show “what changed” and “what to tell clients.”
+
+Block B: Competitive Watch (safe internal view)
+- Summarize recent Gartner Magic Quadrant Leaders/Challengers and their differentiators.
+- Call out use cases top vendors are highlighting and why they win.
+
+Block C: Client-Winning Use Cases + Checklist
+- 2–3 short use case stories (problem → action → result) with **KPI anchors** (e.g., CVR, findability, zero-results).
+- Add an “Action Checklist” with 3–5 immediate consultant tasks for pilots or diagnostics.
+
+Rules:
+- Keep bullets scannable.
+- Blend technical & business terms; explain jargon simply if used.
+- Include **credible recent sources** (OSS release notes, vendor blogs, Gartner announcements).
+- Competitor links are allowed here; external PDFs will only circulate internally.
+- Always end with an **Action Checklist**.
+
+Return only the content—no preamble, no metadata.

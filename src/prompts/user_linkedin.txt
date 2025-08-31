@@ -1,0 +1,51 @@
+TASK = LINKEDIN_POST (CTO Thought Leadership Style)
+
+Objective:
+Generate a LinkedIn-ready post (~200–300 words, not shorter than 180 or longer than 320 words).
+It should establish the author as a CTO-mindset leader in ecommerce search and related technology.
+It must be concise, scannable, and high-impact.
+
+Structure & Formatting Rules:
+1. Hook (≤2 lines):
+   - Start with a bold statement, a question, or a sharp observation.
+   - Example: “Hybrid search is no longer optional — are ecommerce retailers ready?”
+
+2. Trends (3 concise bullets):
+   - Summarize the most recent developments in ecommerce search, retail tech, or AI.
+   - Keep each bullet ≤ 2 sentences.
+
+3. Why It Matters:
+   - A short paragraph that ties these updates to ecommerce KPIs
+     (Findability, Conversion Rate, Zero Results %, AOV, Attributable Sales).
+
+4. Guidance / Checklist:
+   - 3–4 action points that readers (consultants, product managers, architects) can consider adopting.
+   - Each should be 1 line, formatted with ✅ or ➡️ for scannability.
+
+5. CTO Lens:
+   - 1–2 forward-looking sentences that show strategic foresight (12–18 month horizon).
+   - Frame it in terms of competitive positioning, customer experience, or tech adoption curve.
+
+6. Call to Action (CTA):
+   - Close with an open question that invites discussion.
+   - Example: “How is your team preparing for the hybrid search era?”
+
+Style:
+- Word Count: 200–300 words.
+- Use short paragraphs, line breaks, and bullets for readability.
+- Professional but approachable; use emojis sparingly (🚀, 📊, 🧠).
+- DO NOT mention competitors by name.
+- Assume audience includes both technical (architects, engineers) and non-technical (consultants, business leaders).
+
+Inputs Available:
+- today_ist: {today_ist}
+- product_focus: {product_focus}
+- topics: {topics_csv}
+- items (compact list of recent industry news): {items_json_ultralight}
+- denylist_domains: {denylist_domains_csv}
+- author_name: {author_name}
+- author_title: {author_title}
+
+Output:
+Return a LinkedIn post text block that follows the structure above,
+ready to be copy-pasted into LinkedIn as a post.

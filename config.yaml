@@ -1,0 +1,114 @@
+schedule:
+  timezone: "Asia/Kolkata"
+  day_of_week: 1
+  hour: 9
+  minute: 0
+  biweekly_anchor_date: "2025-08-11"
+
+audiences:
+  executive: { tone: "leadership" }
+  consulting: { tone: "consulting" }
+  linkedin:   { tone: "public_no_competitors" }
+
+sources:
+  vendor_blogs:
+    - { name: "Solr", type: "rss", url: "https://solr.apache.org/feed.xml" }
+    - { name: "Elastic", type: "rss", url: "https://www.elastic.co/blog/feed" }
+    - { name: "OpenSearch", type: "rss", url: "https://opensearch.org/feed.xml" }
+    - { name: "Algolia", type: "rss", url: "https://www.algolia.com/blog/rss.xml" }
+    - { name: "Bloomreach", type: "rss", url: "https://www.bloomreach.com/en/feed" }
+    - { name: "Constructor", type: "rss", url: "https://constructor.io/blog/rss.xml" }
+    - { name: "Coveo", type: "rss", url: "https://www.coveo.com/en/company/news/rss" }
+    - { name: "Unbxd", type: "rss", url: "https://unbxd.com/blog/feed/" }
+  retail_tech_blogs:
+    - { name: "Instacart", type: "rss", url: "https://tech.instacart.com/feed" }
+    - { name: "Flipkart", type: "scrape", url: "https://tech.flipkart.com/" }
+    - { name: "Amazon Science", type: "rss", url: "https://www.amazon.science/feed" }
+    - { name: "Walmart Global Tech", type: "rss", url: "https://medium.com/feed/walmartglobaltech" }
+    - { name: "Target Tech", type: "scrape", url: "https://tech.target.com/" }
+    - { name: "Shopify Engineering", type: "rss", url: "https://shopify.engineering/rss" }
+    - { name: "Zalando Tech", type: "rss", url: "https://engineering.zalando.com/feed.xml" }
+    - { name: "Etsy Engineering", type: "rss", url: "https://codeascraft.com/feed/" }
+
+  reddit:
+    enabled: true
+    subreddits: ["elasticsearch", "ecommerce", "retailtech"]
+    query: "search relevance OR vector OR hybrid"
+    limit: 5
+
+  twitter:
+    enabled: false
+    query: "(ecommerce OR retail) (search OR relevance OR vector) lang:en -is:retweet"
+    limit: 5
+
+  github:
+    enabled: true
+    query: "ecommerce search relevance language:Python sort:created-desc"
+    limit: 5
+
+
+communities:
+  reddit:   { enabled: true, subreddits: ["elasticsearch","MachineLearning","datascience"], keywords: ["vector search","hybrid search","BM25","ranking","pgvector"] }
+  twitter:  { enabled: true, keywords: ["BM25","hybrid search","vector search","relevance tuning"] }
+  github:   { enabled: true, repos: ["apache/solr","opensearch-project/OpenSearch","elastic/elasticsearch","pgvector/pgvector"] }
+
+filters:
+  include_keywords: ["vector","hybrid","search","ranking","relevance","retrieval","catalog","personalization","BM25","ANN","semantic"]
+  exclude_keywords: ["crypto","celebrity","unrelated"]
+
+summarization:
+  use_llm: true
+
+links:
+  recency_days:
+    executive: 21     # only last 3 weeks for execs
+    consulting: 28    # last 4 weeks for consulting
+    linkedin: 21
+  min_per_section:
+    executive: 6
+    consulting: 8
+    linkedin: 5
+  allow_undated_backfill: true
+
+research:
+  use_perplexity: true
+  model: "sonar-pro"
+  search_recency_filter: "week"   # critical
+  topics:
+    - "latest ecommerce search AND hybrid retrieval case studies"
+    - "retail technology blog updates (Instacart, Flipkart, Amazon retail, walmart, target)"
+  include_domains:
+    - "aboutamazon.com"
+    - "instacart.com"
+    - "flipkart.com"
+    - "developer.shopify.com"
+    - "cloud.google.com"
+    - "aws.amazon.com"
+
+
+branding:
+  author_name: "Nayeemuddin Mohammed"
+  author_title: "Principal Consultant (E-commerce Search & Recommendations)"
+
+links:
+  denylist:
+    - "algolia.com"
+    - "bloomreach.com"
+    - "constructor.io"
+    - "elastic.co"
+    - "lucidworks.com"
+    - "klevu.com"
+    - "searchspring.com"
+    - "attraqt.com"
+    - "reflektion.com"
+    - "factfinder.de"
+
+models:
+  executive: sonar-pro
+  consulting: sonar-pro
+  linkedin: gpt-4o-mini
+
+output:
+  dir: "output"
+  pdf_brand: { title: "Search Intel - Bi-Weekly" }
+  email: { enabled: false, subject: "Search Intel — Bi‑Weekly Brief" }
